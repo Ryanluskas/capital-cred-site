@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(unzip -l assets.rar)",
+      "Bash(7z l *)"
+    ]
+  }
+}
