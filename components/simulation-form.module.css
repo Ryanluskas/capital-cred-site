@@ -1,0 +1,226 @@
+.card {
+  min-width: 0;
+  container-type: inline-size;
+  padding: clamp(1.25rem, 3.1vw, 2rem);
+  color: #101b2e;
+  background: #fff;
+  border: 1px solid #e0e8f4;
+  border-radius: 1.375rem;
+  box-shadow: 0 1.2rem 2.7rem #02091830;
+  color-scheme: light;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.25rem;
+}
+
+.heading h3 {
+  margin: 0;
+  color: #101b2e;
+  font-size: 1.2rem;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+
+.headingIcon,
+.successIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #174fbe;
+  background: #eaf2ff;
+  border-radius: 0.75rem;
+}
+
+.form,
+.fields {
+  display: grid;
+  gap: 1rem;
+}
+
+.fields {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@container (min-width: 23rem) {
+  .fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.38rem;
+}
+
+.field label {
+  color: #1d2b41;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.field label span {
+  color: #4f6078;
+  font-weight: 400;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.65rem 0.75rem;
+  color: #101b2e;
+  background: #f8faff;
+  border: 1px solid #a8b6ca;
+  border-radius: 0.7rem;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.35;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.field input::placeholder,
+.field select:invalid {
+  color: #52627b;
+  opacity: 1;
+}
+
+.field input:focus-visible,
+.field select:focus-visible {
+  background: #fff;
+  border-color: #1554df;
+}
+
+.card :is(input, select, button, a):focus-visible {
+  outline: 2px solid #1554df;
+  outline-offset: 2px;
+}
+
+.field :is(input, select)[aria-invalid="true"],
+.consent input[aria-invalid="true"] {
+  border-color: #a8192f;
+}
+
+.select {
+  position: relative;
+}
+
+.select select {
+  padding-right: 2.35rem;
+  appearance: none;
+}
+
+.select svg {
+  position: absolute;
+  inset: 50% 0.75rem auto auto;
+  color: #4f6078;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.trap {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  pointer-events: none;
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.consent input {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: none;
+  margin: 0.15rem 0 0;
+  accent-color: #1554df;
+  cursor: pointer;
+}
+
+.consent p {
+  margin: 0;
+  color: #43516a;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.consent label { cursor: pointer; }
+
+.consent a,
+.failure a {
+  color: #184eb7;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3.2rem;
+  padding: 0.65rem 1rem;
+  color: #fff;
+  background: #1554df;
+  border: 1px solid #1554df;
+  border-radius: 0.72rem;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.submit:not(:disabled):hover { background: #1048c7; }
+.submit:not(:disabled):active { transform: translateY(1px); }
+.submit:disabled { cursor: wait; }
+
+.spinner { animation: spin 900ms linear infinite; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.fieldError,
+.failure {
+  margin: 0;
+  color: #a8192f;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.failure {
+  padding: 0.7rem 0.8rem;
+  background: #fff2f4;
+  border-radius: 0.6rem;
+}
+
+.success {
+  display: grid;
+  justify-items: start;
+  gap: 0.6rem;
+  padding: 1rem;
+  color: #1b4452;
+  background: #edfaf5;
+  border-radius: 0.8rem;
+}
+
+.success p { margin: 0; }
+
+.successIcon {
+  color: #14653e;
+  background: #d7efe1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card :is(input, select, button) { transition: none; }
+  .spinner { animation: none; }
+}

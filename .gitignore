@@ -61,3 +61,7 @@ Thumbs.db
 desktop.ini
 .DS_Store
 .vscode/
+
+# Arquivos locais do Next.js e da Vercel
+next-env.d.ts
+.vercel/

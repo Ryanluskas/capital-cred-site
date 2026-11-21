@@ -1,0 +1,245 @@
+.page {
+  background: var(--ice, #f5f8fc);
+  color: var(--ink, #101b2e);
+}
+
+.shell {
+  position: relative;
+  width: min(1120px, calc(100% - clamp(2.5rem, 9vw, 8rem)));
+  margin-inline: auto;
+}
+
+.hero {
+  overflow: hidden;
+  background: radial-gradient(ellipse at 85% 0%, #204574 0%, transparent 57%),
+    linear-gradient(118deg, #07172f 10%, #10264a 100%);
+  position: relative;
+  color: #fff;
+  padding: clamp(2.2rem, 5vw, 4.75rem) 0 clamp(3.5rem, 8vw, 8rem);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: -15% -15% auto auto;
+  width: min(55vw, 580px);
+  aspect-ratio: 1;
+  border-radius: 26%;
+  border: 1px solid #d7e8ff25;
+  box-shadow: 0 0 0 35px #d7e8ff0b, 0 0 0 69px #d7e8ff0a, 0 0 0 105px #d7e8ff08;
+  transform: rotate(28deg);
+  pointer-events: none;
+}
+
+.hero .shell {
+  z-index: 1;
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .45rem;
+  margin: 0 0 clamp(2rem, 5vw, 4.25rem);
+  padding: 0;
+  list-style: none;
+  font-size: .875rem;
+  color: #c1d5ef;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+}
+
+.breadcrumb a {
+  color: inherit;
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  text-underline-offset: .2em;
+}
+
+.breadcrumb a:hover {
+  color: #fff;
+}
+
+.breadcrumb span[aria-current] {
+  color: #fff;
+}
+
+.category {
+  color: #a5cdff;
+  font-weight: 650;
+  font-size: .875rem;
+  margin: 0 0 1.15rem;
+}
+
+.hero h1 {
+  margin: 0;
+  max-width: 16ch;
+  font-size: clamp(2.55rem, 6.1vw, 5.35rem);
+  line-height: 1.01;
+  letter-spacing: -.065em;
+  font-weight: 650;
+  text-wrap: balance;
+}
+
+.intro {
+  max-width: 51ch;
+  color: #d7e5f6;
+  font-size: clamp(1.03rem, 2vw, 1.25rem);
+  line-height: 1.62;
+  margin: 1.35rem 0 0;
+}
+
+.body {
+  display: grid;
+  gap: clamp(2rem, 6vw, 4.8rem);
+  padding-block: clamp(2.8rem, 7vw, 6.5rem);
+}
+
+.prose {
+  max-width: 74ch;
+  display: grid;
+  gap: 1.65rem;
+}
+
+.prose h2,
+.callout h2,
+.related h2 {
+  margin: 0 0 .55rem;
+  font-size: clamp(1.45rem, 3.4vw, 2.18rem);
+  letter-spacing: -.035em;
+  line-height: 1.13;
+}
+
+.prose p,
+.related p,
+.callout p,
+.infoCard p {
+  font-size: 1.025rem;
+  line-height: 1.7;
+  color: var(--muted, #526179);
+  margin: 0;
+}
+
+.prose p + p {
+  margin-top: .75rem;
+}
+
+.prose a,
+.related a,
+.infoCard a {
+  color: var(--blue, #1554df);
+  text-underline-offset: .18em;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.prose a:hover,
+.related a:hover,
+.infoCard a:hover {
+  text-decoration: underline;
+}
+
+.prose .meta {
+  font-size: .9rem;
+}
+
+.callout {
+  border-radius: 1.65rem;
+  border: 1px solid var(--line, #dce6f3);
+  background: linear-gradient(130deg, #fff, #edf4ff);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+  flex-wrap: wrap;
+  padding: clamp(1.35rem, 5vw, 3.5rem);
+}
+
+.callout p {
+  max-width: 52ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: .7rem;
+  padding: .65rem 1.05rem;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 650;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.primary {
+  color: #fff;
+  background: var(--blue, #1554df);
+  border: 1px solid transparent;
+}
+
+.primary:hover {
+  background: #123b73;
+}
+
+.secondary {
+  border: 1px solid #a6bde4;
+  background: #fff;
+  color: #143e7d;
+}
+
+.secondary:hover {
+  background: #e9f2ff;
+}
+
+.related > div,
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.infoCard {
+  background: #fff;
+  border: 1px solid var(--line, #dce6f3);
+  border-radius: 1.1rem;
+  padding: 1.35rem;
+}
+
+.infoCard h2,
+.infoCard h3 {
+  line-height: 1.25;
+  margin: .65rem 0 .35rem;
+  font-size: 1.2rem;
+  letter-spacing: -.02em;
+}
+
+.infoCard svg {
+  color: var(--blue, #1554df);
+}
+
+.infoCard a {
+  display: inline-block;
+  padding-block: .55rem;
+}
+
+@media (max-width: 480px) {
+  .callout .actions,
+  .callout .actions > * {
+    width: 100%;
+  }
+}
